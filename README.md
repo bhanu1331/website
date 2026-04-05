@@ -8,7 +8,7 @@ This is my personal portfolio website where I showcase my projects, skills, and 
 
 ## 🔗 Live Website
 
-👉 https://bhanu1331.github.io/Portfolio-website/
+👉 https://bhanu1331.github.io/website/
 
 ---
 
