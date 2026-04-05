@@ -1,18 +1,27 @@
-console.log("Script running...")
-document.querySelector('.cross').style.display='none';
-document.querySelector('.hamburger').addEventListener("click", ()=>{
-    document.querySelector('.sidebar').classList.toggle('sidebarGo');
-    if(document.querySelector('.sidebar').classList.contains('sidebarGo')){
-        document.querySelector('.ham').style.display='inline'
-        document.querySelector('.cross').style.display='none'
+const text = ["Software Developer", "Python Developer", "Frontend Developer"];
+let i = 0, j = 0;
+let currentText = "", isDeleting = false;
+
+function type() {
+    currentText = text[i];
+    
+    if (!isDeleting) {
+        document.querySelector(".typing").textContent = currentText.substring(0, j++);
+    } else {
+        document.querySelector(".typing").textContent = currentText.substring(0, j--);
     }
-    else{
-        document.querySelector('.ham').style.display='none'
-        setTimeout(()=>{
-            document.querySelector('.cross').style.display='inline'
-        },300);
+
+    if (j === currentText.length) isDeleting = true;
+    if (j === 0 && isDeleting) {
+        isDeleting = false;
+        i = (i + 1) % text.length;
     }
-})
+
+    setTimeout(type, isDeleting ? 50 : 100);
+}
+
+type();
+
 
 document.querySelector('.about-link').addEventListener("click", () => {
     navigateTo('about.html'); 
@@ -20,3 +29,11 @@ document.querySelector('.about-link').addEventListener("click", () => {
 document.querySelector('.skills-link').addEventListener("click", () => {
     navigateTo('skills.html'); 
 });
+document.querySelector('.projects-link').addEventListener("click", () => {
+    navigateTo('projects.html'); 
+});
+document.querySelector('.contact-link').addEventListener("click", () => {
+    navigateTo('contact.html'); 
+});
+
+
